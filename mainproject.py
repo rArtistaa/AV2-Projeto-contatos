@@ -75,11 +75,6 @@ class MainScreen:
                                            command=self.adicionar_contato)
         self.criar_contato.place(x=88, y=310)
 
-        self.voltar_label = tk.Label(self.frame, text='Voltar', font=self.font3, background='#352c2c', fg='white',
-                                   cursor='hand2')
-        self.voltar_label.bind('<Button-1>', self.leave)
-
-        self.voltar_label.place(x=293, y=350)
 
         self.listbox = tk.Listbox(self.frame, width=40, relief='solid', background='#3f2c2c', fg='white',
                                   borderwidth=2, activestyle='none', selectbackground='grey')
@@ -144,7 +139,7 @@ class MainScreen:
         cpf = cpf[:3] + '.' + cpf[3:6] + '.' + cpf[6:9] + '-' + cpf[9:]
 
         novo_contato = {
-            'ID': f'{self.id_contatos:04d}',
+            'ID': f'{self.id_contatos}',
             'Nome': nome,
             'Telefone': telefone,
             'CPF': cpf,
@@ -249,11 +244,6 @@ class MainScreen:
                 self.contatos = []
                 self.contatos_data = {}
 
-    def leave(self, event):
-        from login import LoginScreen
-        login = LoginScreen()
-
-        login.root.mainloop()
 
     def run(self):
         print(self.contatos_data)

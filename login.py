@@ -82,8 +82,8 @@ class LoginScreen:
                         messagebox.showinfo('Success', 'Success Login')
                         self.root.destroy()
                         from mainproject import MainScreen
-                        library = MainScreen()
-                        library.run()
+                        project = MainScreen()
+                        project.run()
                     else:
                         messagebox.showwarning('Error', 'Invalid Username or Password')
                 except IndexError:
